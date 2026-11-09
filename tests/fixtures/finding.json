@@ -1,0 +1,32 @@
+[
+  {
+    "semgrep_finding": {
+      "check_id": "javascript.sequelize.security.audit.sequelize-injection-express.express-sequelize-injection",
+      "column": 28,
+      "commit_date": "2024-06-11T20:39:36",
+      "commit_url": "https://github.com/owasp/juice-shop/commit/1bb71fff3589e51293e373274092d82c426025d2",
+      "end_column": 159,
+      "end_line": 10,
+      "first_seen_scan_id": "j4an6ro33aJM",
+      "id": "c409ef941eec3008da6e1fd347e793aa",
+      "index": 0,
+      "line": 10,
+      "message": "Detected a sequelize statement that is tainted by user-input.",
+      "metadata": {
+        "category": "security",
+        "confidence": "HIGH",
+        "cwe": ["CWE-89: Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')"],
+        "owasp": ["A03:2021 - Injection"],
+        "semgrep.policy": {"id": 61271, "name": "Rule Board - PR Comments column", "slug": "rule-board-pr-comments"},
+        "semgrep.url": "https://semgrep.dev/r/javascript.sequelize.security.audit.sequelize-injection-express.express-sequelize-injection",
+        "shortlink": "https://sg.run/gjoe"
+      },
+      "numeric_id": 11301071,
+      "path": "data/static/codefixes/unionSqlInjectionChallenge_3.ts",
+      "ref": "refs/heads/master",
+      "repo_name": "owasp/juice-shop",
+      "severity": 2,
+      "start_date": "2023-02-12 00:50:21.552606+00:00"
+    }
+  }
+]

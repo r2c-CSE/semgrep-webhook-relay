@@ -1,0 +1,25 @@
+{
+  "semgrep_scan": {
+    "deployment_id": 1,
+    "enabled_products": ["sast", "sca", "secrets"],
+    "exit_code": 1,
+    "hashed_id": "Y4QdEwR2qPgK",
+    "id": 27714135,
+    "meta": {
+      "branch": "refs/pull/7/merge",
+      "ci_job_url": "https://github.com/owasp/juice-shop/actions/runs/9999999",
+      "commit": "4166d6fd19ce97e65cf3278ce85afe4f444a7842",
+      "commit_title": "random code changes",
+      "is_full_scan": 0,
+      "on": "pull_request",
+      "pull_request_id": "7",
+      "repo_display_name": "owasp/juice-shop",
+      "repository": "owasp/juice-shop",
+      "semgrep_version": "1.75.0"
+    },
+    "repository_id": 158684,
+    "started_at": "2024-06-11T21:26:22.844158+00:00",
+    "completed_at": "2024-06-11T21:27:01.100000+00:00",
+    "stats": null
+  }
+}

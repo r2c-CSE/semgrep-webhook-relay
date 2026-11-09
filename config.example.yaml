@@ -1,0 +1,60 @@
+# Example config for semgrep-webhook-relay.
+# Values like ${NAME} are read from environment variables when the relay starts,
+# so tokens and webhook URLs don't need to live in this file.
+
+server:
+  port: 8080
+  webhook_path: /webhooks/semgrep
+
+semgrep:
+  # The "Signature secret" you set on the webhook integration in Semgrep.
+  # List two values while rotating it.
+  signing_secrets:
+    - ${SEMGREP_WEBHOOK_SECRET}
+
+store:
+  path: /data/relay.db
+  # Events are kept this long, which is also the duplicate-detection window.
+  retention_days: 30
+
+delivery:
+  max_attempts: 10
+  initial_backoff_seconds: 5
+  max_backoff_seconds: 900
+
+connectors:
+  splunk:
+    type: splunk_hec
+    url: ${SPLUNK_HEC_URL}          # e.g. https://splunk.example.com:8088
+    token: ${SPLUNK_HEC_TOKEN}
+    index: semgrep
+    # ca_bundle: /config/splunk-ca.pem   # for a private CA
+  appsec-channel:
+    type: teams
+    url: ${TEAMS_WORKFLOW_URL}
+
+routes:
+  # Every event goes to the SIEM.
+  - name: everything-to-splunk
+    connectors: [splunk]
+
+  # High and critical findings and workflow issues go to Teams.
+  - name: urgent-to-teams
+    match:
+      kinds: ["finding.*", "workflow_issue.*"]
+      min_severity: high
+    connectors: [appsec-channel]
+
+  # Supply Chain incidents that affect your projects go to Teams.
+  - name: incidents-to-teams
+    match:
+      kinds: [supply_chain_incident.declared]
+      where:
+        is_affected: true
+    connectors: [appsec-channel]
+
+  # Clicking "Test" in Semgrep posts a test card to Teams.
+  - name: test-to-teams
+    match:
+      kinds: [semgrep.test]
+    connectors: [appsec-channel]

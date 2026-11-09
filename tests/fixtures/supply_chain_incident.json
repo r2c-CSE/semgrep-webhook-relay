@@ -1,0 +1,33 @@
+[
+  {
+    "semgrep_supply_chain_incident": {
+      "schema_version": 1,
+      "incident_id": 67,
+      "deployment_id": 1,
+      "title": "Embedded Malicious Code in append-only-vec",
+      "description": "Two popular Rust crates were compromised.",
+      "advisories_url": "https://semgrep.dev/orgs/example/advisories?f=CAAQGRoHGgAiACoBQw",
+      "blog_url": "https://semgrep.dev/blog/2026/example/",
+      "is_affected": true,
+      "incident_packages": {
+        "items": [
+          {"name": "append-only-vec", "version": "==0.1.9", "ecosystem": "cargo"},
+          {"name": "arrayref", "version": "==0.3.10", "ecosystem": "cargo"},
+          {"name": "proc-macro-en", "version": "==1.0.10", "ecosystem": "cargo"},
+          {"name": "proc-macro1", "version": "==1.0.107", "ecosystem": "cargo"}
+        ],
+        "total_count": 4,
+        "truncated": false
+      },
+      "matching_projects": {
+        "items": [
+          {"repository_id": 1234, "repository_name": "example/repo-1"},
+          {"repository_id": 5678, "repository_name": "example/repo-2"}
+        ],
+        "total_count": 2,
+        "truncated": false
+      },
+      "metadata": {"dispatched_at": "2026-08-31T20:31:29.654203+00:00"}
+    }
+  }
+]

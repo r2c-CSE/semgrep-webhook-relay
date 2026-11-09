@@ -1,0 +1,43 @@
+[
+  {
+    "type": "workflow_issue",
+    "event": "workflow_complete",
+    "issue_id": "iss_123",
+    "deployment_id": 1,
+    "repository_id": 158684,
+    "detection_state": "detected",
+    "triage_state": "open",
+    "severity": "critical",
+    "title": "SQL injection in order lookup",
+    "description": "User input reaches a raw SQL query.",
+    "file_path": "routes/order.ts",
+    "dependency_path": null,
+    "direct_dependency": null,
+    "domain": "web",
+    "cwe": ["CWE-89"],
+    "owasp": ["A03:2021"],
+    "created_at": "2026-10-01T10:00:00+00:00",
+    "last_detected_at": "2026-10-02T10:00:00+00:00",
+    "updated_at": "2026-10-02T10:05:00+00:00",
+    "workflow_id": "web-security",
+    "workflow_display_name": "Broad web security"
+  },
+  {
+    "type": "workflow_issue",
+    "event": "issue_triaged",
+    "issue_id": "iss_123",
+    "deployment_id": 1,
+    "repository_id": 158684,
+    "detection_state": "detected",
+    "triage_state": "ignored",
+    "severity": "critical",
+    "title": "SQL injection in order lookup",
+    "description": "User input reaches a raw SQL query.",
+    "file_path": "routes/order.ts",
+    "cwe": ["CWE-89"],
+    "owasp": [],
+    "created_at": "2026-10-01T10:00:00+00:00",
+    "last_detected_at": "2026-10-02T10:00:00+00:00",
+    "updated_at": "2026-10-03T09:00:00+00:00"
+  }
+]
